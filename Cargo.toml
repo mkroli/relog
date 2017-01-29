@@ -1,0 +1,12 @@
+[package]
+name = "relog"
+version = "0.1.0"
+authors = ["Michael Krolikowski <mkroli@yahoo.de>"]
+description = "replays logfiles"
+
+[dependencies]
+error-chain = "0.8"
+clap = "2.20"
+nom = "2.1"
+regex = "0.2"
+time = "0.1"
