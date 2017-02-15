@@ -23,9 +23,8 @@ extern crate clap;
 extern crate regex;
 extern crate time;
 
-use clap::{Arg, ArgMatches};
+use clap::{AppSettings, Arg, ArgMatches};
 use std::thread::sleep;
-use std::process::exit;
 use time::{Duration, now_utc};
 
 mod errors;
@@ -76,6 +75,7 @@ fn relog(date_extraction_regex: &str, date_format: &str, filename: &str) -> Resu
 
 fn run() -> Result<()> {
     let matches: ArgMatches = app_from_crate!()
+        .global_setting(AppSettings::ColoredHelp)
         .arg(Arg::with_name("date_extraction_regex")
             .short("r")
             .long("regex")
@@ -107,9 +107,4 @@ fn run() -> Result<()> {
     relog(&date_extraction_regex, date_format, logfile)
 }
 
-fn main() {
-    if let Err(ref e) = run() {
-        println!("Error: {}", e);
-        exit(1);
-    }
-}
+quick_main!(run);
