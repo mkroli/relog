@@ -100,8 +100,8 @@ fn run() -> Result<()> {
         .map(String::from)
         .or(
             regex_from_date_format(&date_format.as_bytes())
-                .to_result()
-                .chain_err(|| "failed to create regex from date_format")
+                .map(|(_, o)| o)
+                .map_err(|_| Error::from("failed to create regex from date_format"))
         )?;
 
     relog(&date_extraction_regex, date_format, logfile)
