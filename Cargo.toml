@@ -5,8 +5,8 @@ authors = ["Michael Krolikowski <mkroli@yahoo.de>"]
 description = "replays logfiles"
 
 [dependencies]
-error-chain = "0.8"
-clap = "2.20"
-nom = "2.1"
-regex = "0.2"
+error-chain = "0.12"
+clap = "2"
+nom = "2"
+regex = "1"
 time = "0.1"
