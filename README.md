@@ -1,5 +1,7 @@
 # relog
 
+[![Build Status](https://cloud.drone.io/api/badges/mkroli/relog/status.svg)](https://cloud.drone.io/mkroli/relog)
+
 ## Installation
 Download executable from [Releases](https://github.com/mkroli/relog/releases) or build:
 ```bash
