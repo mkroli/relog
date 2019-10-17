@@ -39,6 +39,6 @@ named!(escaped_character<&[u8], String>,
   map!(one_of!(r"[](){}|?+-*^$\."), |c| format!(r"\{}", c))
 );
 
-named!(regexes_from_date_format<&[u8], Vec<String>>, many0!(alt!(format_field | escaped_character | character)));
+named!(regexes_from_date_format<&[u8], Vec<String>>, many0!(complete!(alt!(format_field | escaped_character | character))));
 
 named!(pub regex_from_date_format<&[u8], String>, map!(regexes_from_date_format, |l: Vec<String>| format!("({})", l.concat())));
